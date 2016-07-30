@@ -9,10 +9,10 @@
 //console.log("nodulus.run middleware load");
 var fs = require("fs");
 global.nodulus = {
-    classes: require('./classes.js'),
-    parser: require('./parser.js'),
-    renderer: require('./renderer.js'),
-    runner: require('./runner.js')
+    classes: require('./lib/classes.js'),
+    parser: require('./lib/parser.js'),
+    renderer: require('./lib/renderer.js'),
+    runner: require('./lib/runner.js')
 
 }
 
