@@ -3,7 +3,7 @@
 using the MEAN stack to build complex server rendered website is not a trivial task. node's async model and lack of objects like master pages, user controls and partials.
 
 
-## installation
+## Usage
 
 
   middleware for [nodulus](https://github.com/nodulusteam/nodulus)   &  [node](http://nodejs.org).
