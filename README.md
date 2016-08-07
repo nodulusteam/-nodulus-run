@@ -23,7 +23,7 @@ $ npm install nodulus-run
 
 ## Docs & Community
 
-  * [Website and Documentation](https://github.com/roibh/nodulus-run/) - [[website repo](https://github.com/ewave-open-source/nodulus-run/)]
+  * [Website and Documentation](https://github.com/roibh/nodulus-run/) - [[website repo](https://github.com/roibh/nodulus-run/)]
 
 
 
