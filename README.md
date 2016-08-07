@@ -6,17 +6,8 @@ using the MEAN stack to build complex server rendered website is not a trivial t
 ## installation
 
 
-  middleware for [nodulus](https://github.com/ewave-open-source/nodulus)   &  [node](http://nodejs.org).
+  middleware for [nodulus](https://github.com/nodulusteam/nodulus)   &  [node](http://nodejs.org).
 
-  [![NPM Version][npm-image]][npm-url]
-  [![NPM Downloads][downloads-image]][downloads-url]
-  [![Linux Build][travis-image]][travis-url]
-  [![Windows Build][appveyor-image]][appveyor-url]
-  [![Test Coverage][coveralls-image]][coveralls-url]
-
-```js
-
-```
 
 ## Installation
 
@@ -32,7 +23,7 @@ $ npm install nodulus-run
 
 ## Docs & Community
 
-  * [Website and Documentation](https://github.com/ewave-open-source/nodulus-run/) - [[website repo](https://github.com/ewave-open-source/nodulus-run/)]
+  * [Website and Documentation](https://github.com/roibh/nodulus-run/) - [[website repo](https://github.com/ewave-open-source/nodulus-run/)]
 
 
 
