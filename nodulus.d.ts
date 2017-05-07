@@ -8,7 +8,7 @@ declare module nodulus {
         db: any;
 
     }
-    
+
 
 
     export interface IDbCollection {
@@ -40,7 +40,7 @@ declare module nodulus {
 
 
     }
-     
+
 
 }
 
@@ -59,6 +59,7 @@ declare module NodeJS {
         rooms: any;
         config: any;
         terminals: any;
+        nodulus: any;
         debug(...messages: Array<any>): void;
     }
 

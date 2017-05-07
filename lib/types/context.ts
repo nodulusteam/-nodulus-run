@@ -6,7 +6,7 @@ module.exports = function (req, res) {
         this.req.runningPage = req.navigation.DisplayFile.FileName;
     }
     else {
-        this.req.runningPage = "pages/" + req.originalUrl + ".html";
+        this.req.runningPage = "pages/" + req.originalUrl.split('?')[0] + ".html";
     }
 
 }
