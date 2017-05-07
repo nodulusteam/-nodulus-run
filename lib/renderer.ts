@@ -2,7 +2,7 @@
 var fs = require("fs");
 var debug = require('debug')('@nodulus');
 
-export class Renderer {
+export default class Renderer {
     public static async   renderMaster(page) {
         var controlTree = page.controls,
             pageStr = page.fileContent;

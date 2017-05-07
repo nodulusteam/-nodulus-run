@@ -4,6 +4,10 @@
 ///
 ///
 //////////////////////////////////////////////////////////////////////////////////////////
+import  Parser from './lib/parser';
+import  Renderer from './lib/renderer';
+import  {Page , MasterPage} from './lib/classes';
+
 var debug = require('debug')('@nodulus');
 var fs = require("fs");
 var config = require("@nodulus/config");
@@ -25,7 +29,7 @@ export default class index {
         if (a > -1 && a != b)
             index.recurseme(context);
         else {
-            result = await global.nodulus.renderer.renderMaster(context.page);
+            result = await Renderer.renderMaster(context.page);
         }
         return result;
     }

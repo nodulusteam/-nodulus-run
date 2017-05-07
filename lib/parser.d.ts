@@ -1,4 +1,4 @@
-export declare class Parser {
+export default class Parser {
     context: any;
     parser: any;
     instance: Parser;

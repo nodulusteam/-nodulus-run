@@ -2,19 +2,20 @@
 var async = require('async');
 var fs = require('fs');
 var debug = require('debug')('@nodulus');
-
-
+import  Parser from './parser';
+import  Renderer from './renderer';
+import  {Page , MasterPage} from './classes';
 
 export class Runner {
     public static async run(context, callback, errorcallback) {
         var page = context.page;
         if (!context.page) {
-            page = new global.nodulus.classes.Page(context);
+            page = new Page(context);
             context.page = page;
         }
 
         //attach a new parser instance to the page
-        page.parser = new global.nodulus.parser.Parser(context);
+        page.parser = new Parser(context);
         debug('runner run');
         await page.run();
 
@@ -27,20 +28,20 @@ export class Runner {
 
         page.parser.buildTree(page);
         // page.parser.parsePlaceHolders(page, function () {
-        let childrenResult = await global.nodulus.runner.runChildren(context, page.controls);
+        let childrenResult = await Runner.runChildren(context, page.controls);
 
-        var result = global.nodulus.renderer.render(page);
+        var result = Renderer.render(page);
 
         page.fileContent = result;
         if (page.masterpage) {
             let masterResult = await page.masterpage.run();
             page.parser.buildTree(page.masterpage);
-            childrenResult = await global.nodulus.runner.runChildren(context, page.masterpage.controls);
+            childrenResult = await Runner.runChildren(context, page.masterpage.controls);
 
-            masterResult = await global.nodulus.renderer.render(page.masterpage);
+            masterResult = await Renderer.render(page.masterpage);
 
             page.masterpage.fileContent = ejs.render(page.masterpage.fileContent, page.masterpage);
-            page.parser = new global.nodulus.parser.Parser(context);
+            page.parser = new Parser(context);
             page.parser.parsePlaceHolders(page.masterpage);
 
 

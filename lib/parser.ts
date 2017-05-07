@@ -1,9 +1,12 @@
+import Control from './types/control';
+import  {Page , MasterPage} from './classes';
+
 const htmlParserclass = require("htmlparser2");
 var fs = require('fs');
 var path = require('path');
 var debug = require('debug')('@nodulus');
 
-export class Parser {
+export default class Parser {
     context: any;
     parser: any;
     instance: Parser;
@@ -29,30 +32,15 @@ export class Parser {
 
                     switch (parts[1]) {
                         case "master":
-                            var c = new global.nodulus.classes.MasterPage(context, attrBag);
+                            var c = new MasterPage(context, attrBag);
                             instance.pageInstance.masterpage = c;
                             instance.pageInstance.masterpage.startIndex = instance.parser.startIndex;
                             break;
                         case "content":
                             lastContentId = attribs["id"]
                             instance.pageInstance.contents[lastContentId] = { startIndex: instance.parser.startIndex }
-
-
-
-                            //instance.pageInstance.masterpage.placeholders[];
-                            //for(var i=0;i<)
                             break;
-                        //     
-                        //     case "placeholder":
-                        //     //var placeholder = new global.nodulus.classes.PlaceHolder(attrBag);
-                        //  
-                        //     placeholder.startIndex = instance.parser.startIndex;
-                        //     instance.pageInstance.masterpage.placeholders.push(placeholder );  
-                        //     
-                        //     break;
-                    }
-
-                    //.controls[instance.pageInstance.controls.length-1]
+                    }                    
                 }
                 else if (name.indexOf("run_") == 0) {
                     var parts = name.split('_');
@@ -61,16 +49,16 @@ export class Parser {
                     if (parts.length == 2) {
                         effectiveNamespace = parts[0];
                     }
-                    var c = new global.nodulus.classes.Control(effectiveNamespace, effectiveName);
-                    c.originalname = name;
-                    c.attributes = attrBag;
+                    let control = new Control(effectiveNamespace, effectiveName);
+                    control.originalname = name;
+                    control.attributes = attrBag;
 
                     if (attrBag["id"] === undefined)
                         throw (new Error('element ' + name + ' is missing an id'));
 
-                    c.id = attrBag["id"];
-                    c.startIndex = instance.parser.startIndex;
-                    instance.pageInstance.controls.push(c);
+                    control.id = attrBag["id"];
+                    control.startIndex = instance.parser.startIndex;
+                    instance.pageInstance.controls.push(control);
                     //instance.pageInstance.controls[instance.pageInstance.controls.length-1]
 
                 }
